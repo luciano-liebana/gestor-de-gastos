@@ -1,0 +1,37 @@
+print("\n=== GESTOR DE GASTOS ===")
+
+total = 0
+gastos = []
+
+while True:
+    print("1 - Agregar Gastos")
+    print("2 - Ver Total y lista")
+    print("3 - Salir")
+
+    opcion = input("Elige una opcion: ")
+
+    if opcion == "1":
+        try: 
+            monto = float(input("Monto del gasto: "))
+            if monto <= 0:
+                 print("Monto debe ser mayor que 0")
+                 continue
+            total += monto
+            gastos.append(monto) 
+            print("Gasto agregado")
+        except:
+               print("Monto invalido, intente de nuevo")
+    
+    elif opcion == "2":
+         print("Total gastado:", total)
+         print("Lista de Gastos:")
+         for i, g in enumerate(gastos, 1):
+              print(f"{i}. ${g}")
+
+    elif opcion == "3":
+        print("Saliendo..")
+        break
+    else:
+         print("Opcion invalida")
+        
+print("El Total de gastos es:", total)
